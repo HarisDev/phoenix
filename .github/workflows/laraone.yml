@@ -33,4 +33,4 @@ jobs:
         env:
           DB_PASSWORD: root
           DB_DATABASE: laraone
-        run: php artisan dusk
+        run: php artisan dusk --debug --verbose
