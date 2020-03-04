@@ -18,11 +18,7 @@ jobs:
     - name: Create Database
       run: |
         mkdir -p database
-        touch database/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via Dusk
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        touch database/database.sqlite      
     - name: Upgrade chrome driver
       run: php artisan dusk:chrome-driver
     - name: Start Chrome Driver
@@ -30,4 +26,7 @@ jobs:
     - name: Run Laravel Server
       run: php artisan serve > /dev/null 2>&1 &
     - name: Execute tests (Unit and Feature tests) via Dusk
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
       run: php artisan dusk
