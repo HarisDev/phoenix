@@ -32,7 +32,7 @@ jobs:
         chromedriver --url-base=/wd/hub &
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
     - name: Run Laravel Server
-      run: php artisan serve > /dev/null 2>&1 &
+      run: APP_URL=http://127.0.0.1:8000 php artisan serve > /dev/null 2>&1 &
     - name: Execute tests (Unit and Feature tests) via Dusk
       env:
         DB_CONNECTION: sqlite
