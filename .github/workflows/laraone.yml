@@ -6,6 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - uses: nanasess/setup-chromedriver@master
+        with:
+          chromedriver-version: '80.0.3987.106'
       - name: Prepare The Environment
         run: cp .env.example .env
       - name: Create Database
@@ -17,10 +20,7 @@ jobs:
       - name: Upgrade Chrome Driver
         run: php artisan dusk:chrome-driver
       - name: Start Chrome Driver
-      - uses: nanasess/setup-chromedriver@master
-        with:
-          chromedriver-version: '80.0.3987.106'
-      - run: |
+        run: |
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
