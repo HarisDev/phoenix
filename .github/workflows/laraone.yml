@@ -25,7 +25,7 @@ jobs:
       run: php artisan dusk:chrome-driver
     - uses: nanasess/setup-chromedriver@master
       with:
-        chromedriver-version: '77.0.3865.40'
+        chromedriver-version: '80.0.3987.106'
     - run: |
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
