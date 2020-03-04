@@ -19,6 +19,12 @@ jobs:
       - name: Start Chrome Driver
         run: ./vendor/laravel/dusk/bin/chromedriver-linux &
       - name: Run Laravel Server
+        env:
+          DB_PASSWORD: root
+          DB_DATABASE: laraone
         run: php artisan serve &
       - name: Run Dusk Tests
+        env:
+          DB_PASSWORD: root
+          DB_DATABASE: laraone
         run: php artisan dusk
