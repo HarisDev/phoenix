@@ -37,4 +37,4 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: php artisan dusk
+      run: APP_URL=http://127.0.0.1:8000 php artisan dusk
