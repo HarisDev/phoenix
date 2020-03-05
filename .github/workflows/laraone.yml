@@ -12,8 +12,7 @@ jobs:
       - name: Prepare The Environment
         run: cp .env.example .env
       - name: Create Database
-        run: mysql --user="root" --password="root" -e "CREATE DATABASE laraone character set UTF8mb4 collate utf8mb4_bin;
-                                                       ALTER USER 'root'@'localhost' IDENTIFIED BY 'toor'; FLUSH PRIVILEGES;"
+        run: mysql --user="root" --password="root" -e "CREATE DATABASE laraone character set UTF8mb4 collate utf8mb4_bin;"
       - name: Install Composer Dependencies
         run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
       - name: Generate Application Key
@@ -26,6 +25,10 @@ jobs:
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - name: Install Laraone app
+        env:
+          DB_PASSWORD: toor
+          DB_DATABASE: laraone
+          APP_URL: http://localhost:8000
         run: php artisan laraone:install
       - name: Run Laravel Server
         env:
