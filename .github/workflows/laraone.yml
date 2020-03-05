@@ -26,19 +26,19 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - name: Install Laraone app
         env:
-          DB_PASSWORD: toor
+          DB_PASSWORD: root
           DB_DATABASE: laraone
           APP_URL: http://localhost:8000
         run: php artisan laraone:install
       - name: Run Laravel Server
         env:
-          DB_PASSWORD: toor
+          DB_PASSWORD: root
           DB_DATABASE: laraone
           APP_URL: http://localhost:8000
         run: php artisan serve &
       - name: Run Dusk Tests
         env:
-          DB_PASSWORD: toor
+          DB_PASSWORD: root
           DB_DATABASE: laraone
           APP_URL: http://localhost:8000
         run: php artisan dusk --debug --verbose
