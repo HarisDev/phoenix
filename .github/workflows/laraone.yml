@@ -38,9 +38,7 @@ jobs:
         run: php artisan serve &
       
       - name: curl
-        uses: wei/curl@master
-        with:
-          args: http://127.0.0.1:9000
+        run: curl --location --request GET 'http://127.0.0.1:8000'
       - name: Run Dusk Tests
         env:
           DB_PASSWORD: root
