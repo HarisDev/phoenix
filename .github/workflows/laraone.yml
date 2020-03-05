@@ -28,17 +28,17 @@ jobs:
         env:
           DB_PASSWORD: root
           DB_DATABASE: laraone
-          APP_URL: http://localhost:8000
+          APP_URL: http://127.0.0.1:8000
         run: php artisan laraone:install
       - name: Run Laravel Server
         env:
           DB_PASSWORD: root
           DB_DATABASE: laraone
-          APP_URL: http://localhost:8000
+          APP_URL: http://127.0.0.1:8000
         run: php artisan serve &
       - name: Run Dusk Tests
         env:
           DB_PASSWORD: root
           DB_DATABASE: laraone
-          APP_URL: http://localhost:8000
+          APP_URL: http://127.0.0.1:8000
         run: php artisan dusk --debug --verbose
