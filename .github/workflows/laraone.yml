@@ -38,7 +38,7 @@ jobs:
         run: php artisan serve &
       
       - name: curl
-        run: curl --location --request GET 'http://127.0.0.1:8000'
+        run: curl --location --request GET 'http://127.0.0.1:8000/auth/login'
       - name: Run Dusk Tests
         env:
           DB_PASSWORD: root
