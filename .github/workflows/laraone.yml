@@ -33,7 +33,7 @@ jobs:
       - name: Install maildev server & web interface
         run: sudo npm install -g maildev
       - name: Run maildev
-        run: maildev
+        run: maildev &
       - name: Run Dusk Tests
         env:
           DB_PASSWORD: root
