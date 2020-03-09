@@ -27,9 +27,11 @@ jobs:
           DB_PASSWORD: root
           DB_DATABASE: laraone
           APP_URL: http://127.0.0.1:8000
+          MAIL_HOST: localhost
+          MAIL_PORT: 1025
         run: php artisan serve &
       - name: Install maildev server & web interface
-        run: npm install -g maildev
+        run: sudo npm install -g maildev
       - name: Run maildev
         run: maildev
       - name: Run Dusk Tests
