@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: nanasess/setup-chromedriver@master
       - name: Prepare The Environment
         run: cp .env.example .env
       - name: Create Database
@@ -17,11 +16,6 @@ jobs:
         run: php artisan key:generate
       - name: Upgrade Chrome Driver
         run: php artisan dusk:chrome-driver
-      - name: Start Chrome Driver
-        run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub --headless &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - name: Install Laraone app
         env:
           DB_PASSWORD: root
