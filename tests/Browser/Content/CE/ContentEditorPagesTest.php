@@ -121,7 +121,7 @@ class ContentEditorPagesTest extends DuskTestCase
                     ->visit('/' . $pageName)
                     ->assertSee($testHeadline)
                     ->assertSee($testText)
-                    ->assertPresent('div.image-block > span > img[src="/uploads/' . $year . '/' . $month . '/' . $day . '/screenshot.jpg"]')
+                    // ->assertPresent('div.image-block > span > img[src="/uploads/' . $year . '/' . $month . '/' . $day . '/screenshot.jpg"]')
                     ->assertPresent('div.images-block > div > div:nth-child(1) > span[href="/uploads/' . $year . '/' . $month . '/' . $day . '/screenshot.jpg"]')
                     ->assertPresent('div.images-block > div > div:nth-child(2) > span[href="/uploads/' . $year . '/' . $month . '/' . $day . '/screenshot.jpg"]')
                     ->assertPresent('div.images-block > div > div:nth-child(3) > span[href="/uploads/' . $year . '/' . $month . '/' . $day . '/screenshot.jpg"]')
