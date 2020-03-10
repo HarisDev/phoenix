@@ -37,7 +37,7 @@ jobs:
       - name: Curl
         run: curl --location --request GET 'http://127.0.0.1:1080'
       - name: Fix up permissions
-        run: chmod -R 775 public/uploads
+        run: chmod -R 775 public/uploads && sudo chown -R $(id -u):$(id -g) public/uploads
       - name: Run Dusk Tests
         env:
           DB_PASSWORD: root
